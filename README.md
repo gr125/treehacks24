@@ -1,4 +1,4 @@
-# Multiple Window 3D Scene using Three.js
+# EHR Patient Summarizer and Advisor
 
 ## Introduction
 This project applies Together.ai API to various simulated patient data to summarize health records and advise individuals. It's designed for patient use to directly obtain more information about their electronic health records (EHR) and provides general medical advise based on their history.
