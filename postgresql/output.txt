@@ -1,0 +1,178 @@
+Patient Information:
+
+First Name: Trent525
+Last Name: Christiansen251
+
+Allergies:
+Start: 2022-04-08 00:00:00, Description: Allergy to substance (finding), Type: allergy, Category: environment, Reaction1: None, Severity1: None, Reaction2: None, Severity2: None
+Start: 2022-04-08 00:00:00, Description: Latex (substance), Type: allergy, Category: environment, Reaction1: Wheal (finding), Severity1: MILD, Reaction2: None, Severity2: None
+Start: 2022-04-08 00:00:00, Description: Mold (organism), Type: allergy, Category: environment, Reaction1: None, Severity1: None, Reaction2: None, Severity2: None
+Start: 2022-04-08 00:00:00, Description: House dust mite (organism), Type: allergy, Category: environment, Reaction1: None, Severity1: None, Reaction2: None, Severity2: None
+Start: 2022-04-08 00:00:00, Description: Animal dander (substance), Type: allergy, Category: environment, Reaction1: Rhinoconjunctivitis (disorder), Severity1: MODERATE, Reaction2: None, Severity2: None
+Start: 2022-04-08 00:00:00, Description: Grass pollen (substance), Type: allergy, Category: environment, Reaction1: None, Severity1: None, Reaction2: None, Severity2: None
+Start: 2022-04-08 00:00:00, Description: Tree pollen (substance), Type: allergy, Category: environment, Reaction1: None, Severity1: None, Reaction2: None, Severity2: None
+Start: 2022-04-08 00:00:00, Description: Tree nut (substance), Type: allergy, Category: food, Reaction1: Wheal (finding), Severity1: MODERATE, Reaction2: Eruption of skin (disorder), Severity2: MODERATE
+Start: 2022-04-08 00:00:00, Description: Peanut (substance), Type: allergy, Category: food, Reaction1: Allergic angioedema (disorder), Severity1: MODERATE, Reaction2: Wheezing (finding), Severity2: MILD
+
+Conditions:
+Start: 2021-07-23 00:00:00, Stop: 2021-08-27 00:00:00, Description: Medication review due (situation)
+Start: 2021-08-29 00:00:00, Stop: None, Description: Seizure disorder
+Start: 2021-08-29 00:00:00, Stop: None, Description: History of single seizure (situation)
+Start: 2021-08-29 00:00:00, Stop: None, Description: Epilepsy
+Start: 2021-10-29 00:00:00, Stop: 2022-04-01 00:00:00, Description: Medication review due (situation)
+Start: 2022-02-15 00:00:00, Stop: None, Description: Atopic dermatitis
+Start: 2022-04-22 00:00:00, Stop: 2022-05-01 00:00:00, Description: Acute viral pharyngitis (disorder)
+Start: 2022-07-01 00:00:00, Stop: 2022-07-01 00:00:00, Description: Medication review due (situation)
+Start: 2022-09-30 00:00:00, Stop: 2023-06-30 00:00:00, Description: Medication review due (situation)
+Start: 2023-12-29 00:00:00, Stop: None, Description: Medication review due (situation)
+
+Observations:
+Date: 2021-07-23, Category: vital-signs, Description: Body Height, Value: 56.5, Units: cm, Type: numeric
+Date: 2021-07-23, Category: vital-signs, Description: Pain severity - 0-10 verbal numeric rating [Score] - Reported, Value: 0.0, Units: {score}, Type: numeric
+Date: 2021-07-23, Category: vital-signs, Description: Body Weight, Value: 4.7, Units: kg, Type: numeric
+Date: 2021-07-23, Category: vital-signs, Description: Weight-for-length Per age and sex, Value: 10.0, Units: %, Type: numeric
+Date: 2021-07-23, Category: vital-signs, Description: Head Occipital-frontal circumference Percentile, Value: 95.9, Units: %, Type: numeric
+Date: 2021-07-23, Category: vital-signs, Description: Head Occipital-frontal circumference, Value: 38.7, Units: cm, Type: numeric
+Date: 2021-07-23, Category: vital-signs, Description: Diastolic Blood Pressure, Value: 72.0, Units: mm[Hg], Type: numeric
+Date: 2021-07-23, Category: vital-signs, Description: Systolic Blood Pressure, Value: 134.0, Units: mm[Hg], Type: numeric
+Date: 2021-07-23, Category: vital-signs, Description: Heart rate, Value: 86.0, Units: /min, Type: numeric
+Date: 2021-07-23, Category: vital-signs, Description: Respiratory rate, Value: 14.0, Units: /min, Type: numeric
+Date: 2021-07-23, Category: laboratory, Description: Leukocytes [#/volume] in Blood by Automated count, Value: 4.3, Units: 10*3/uL, Type: numeric
+Date: 2021-07-23, Category: laboratory, Description: Erythrocytes [#/volume] in Blood by Automated count, Value: 5.2, Units: 10*6/uL, Type: numeric
+Date: 2021-07-23, Category: laboratory, Description: Hemoglobin [Mass/volume] in Blood, Value: 16.2, Units: g/dL, Type: numeric
+Date: 2021-07-23, Category: laboratory, Description: Hematocrit [Volume Fraction] of Blood by Automated count, Value: 45.6, Units: %, Type: numeric
+Date: 2021-07-23, Category: laboratory, Description: MCV [Entitic volume] by Automated count, Value: 91.1, Units: fL, Type: numeric
+Date: 2021-07-23, Category: laboratory, Description: MCH [Entitic mass] by Automated count, Value: 32.2, Units: pg, Type: numeric
+Date: 2021-07-23, Category: laboratory, Description: MCHC [Mass/volume] by Automated count, Value: 35.1, Units: g/dL, Type: numeric
+Date: 2021-07-23, Category: laboratory, Description: Erythrocyte distribution width [Entitic volume] by Automated count, Value: 42.8, Units: fL, Type: numeric
+Date: 2021-07-23, Category: laboratory, Description: Platelets [#/volume] in Blood by Automated count, Value: 238.8, Units: 10*3/uL, Type: numeric
+Date: 2021-07-23, Category: laboratory, Description: Platelet distribution width [Entitic volume] in Blood by Automated count, Value: 311.6, Units: fL, Type: numeric
+Date: 2021-07-23, Category: laboratory, Description: Platelet mean volume [Entitic volume] in Blood by Automated count, Value: 11.5, Units: fL, Type: numeric
+Date: 2021-07-23, Category: social-history, Description: Tobacco smoking status, Value: Never smoked tobacco (finding), Units: None, Type: text
+Date: 2021-08-27, Category: vital-signs, Description: Body Height, Value: 60.5, Units: cm, Type: numeric
+Date: 2021-08-27, Category: vital-signs, Description: Pain severity - 0-10 verbal numeric rating [Score] - Reported, Value: 2.0, Units: {score}, Type: numeric
+Date: 2021-08-27, Category: vital-signs, Description: Body Weight, Value: 5.7, Units: kg, Type: numeric
+Date: 2021-08-27, Category: vital-signs, Description: Weight-for-length Per age and sex, Value: 11.2, Units: %, Type: numeric
+Date: 2021-08-27, Category: vital-signs, Description: Head Occipital-frontal circumference Percentile, Value: 95.9, Units: %, Type: numeric
+Date: 2021-08-27, Category: vital-signs, Description: Head Occipital-frontal circumference, Value: 41.8, Units: cm, Type: numeric
+Date: 2021-08-27, Category: vital-signs, Description: Diastolic Blood Pressure, Value: 79.0, Units: mm[Hg], Type: numeric
+Date: 2021-08-27, Category: vital-signs, Description: Systolic Blood Pressure, Value: 136.0, Units: mm[Hg], Type: numeric
+Date: 2021-08-27, Category: vital-signs, Description: Heart rate, Value: 66.0, Units: /min, Type: numeric
+Date: 2021-08-27, Category: vital-signs, Description: Respiratory rate, Value: 13.0, Units: /min, Type: numeric
+Date: 2021-08-27, Category: social-history, Description: Tobacco smoking status, Value: Never smoked tobacco (finding), Units: None, Type: text
+Date: 2023-06-30, Category: vital-signs, Description: Body Height, Value: 92.0, Units: cm, Type: numeric
+Date: 2021-10-29, Category: vital-signs, Description: Body Height, Value: 66.1, Units: cm, Type: numeric
+Date: 2021-10-29, Category: vital-signs, Description: Pain severity - 0-10 verbal numeric rating [Score] - Reported, Value: 1.0, Units: {score}, Type: numeric
+Date: 2021-10-29, Category: vital-signs, Description: Body Weight, Value: 7.4, Units: kg, Type: numeric
+Date: 2021-10-29, Category: vital-signs, Description: Weight-for-length Per age and sex, Value: 39.6, Units: %, Type: numeric
+Date: 2021-10-29, Category: vital-signs, Description: Head Occipital-frontal circumference Percentile, Value: 95.9, Units: %, Type: numeric
+Date: 2021-10-29, Category: vital-signs, Description: Head Occipital-frontal circumference, Value: 44.1, Units: cm, Type: numeric
+Date: 2021-10-29, Category: vital-signs, Description: Diastolic Blood Pressure, Value: 77.0, Units: mm[Hg], Type: numeric
+Date: 2021-10-29, Category: vital-signs, Description: Systolic Blood Pressure, Value: 122.0, Units: mm[Hg], Type: numeric
+Date: 2021-10-29, Category: vital-signs, Description: Heart rate, Value: 100.0, Units: /min, Type: numeric
+Date: 2021-10-29, Category: vital-signs, Description: Respiratory rate, Value: 13.0, Units: /min, Type: numeric
+Date: 2021-10-29, Category: social-history, Description: Tobacco smoking status, Value: Never smoked tobacco (finding), Units: None, Type: text
+Date: 2021-12-31, Category: vital-signs, Description: Body Height, Value: 70.2, Units: cm, Type: numeric
+Date: 2021-12-31, Category: vital-signs, Description: Pain severity - 0-10 verbal numeric rating [Score] - Reported, Value: 2.0, Units: {score}, Type: numeric
+Date: 2021-12-31, Category: vital-signs, Description: Body Weight, Value: 8.8, Units: kg, Type: numeric
+Date: 2021-12-31, Category: vital-signs, Description: Weight-for-length Per age and sex, Value: 63.9, Units: %, Type: numeric
+Date: 2021-12-31, Category: vital-signs, Description: Head Occipital-frontal circumference Percentile, Value: 95.9, Units: %, Type: numeric
+Date: 2021-12-31, Category: vital-signs, Description: Head Occipital-frontal circumference, Value: 45.7, Units: cm, Type: numeric
+Date: 2021-12-31, Category: vital-signs, Description: Diastolic Blood Pressure, Value: 81.0, Units: mm[Hg], Type: numeric
+Date: 2021-12-31, Category: vital-signs, Description: Systolic Blood Pressure, Value: 131.0, Units: mm[Hg], Type: numeric
+Date: 2021-12-31, Category: vital-signs, Description: Heart rate, Value: 61.0, Units: /min, Type: numeric
+Date: 2021-12-31, Category: vital-signs, Description: Respiratory rate, Value: 15.0, Units: /min, Type: numeric
+Date: 2021-12-31, Category: social-history, Description: Tobacco smoking status, Value: Never smoked tobacco (finding), Units: None, Type: text
+Date: 2022-04-01, Category: vital-signs, Description: Body Height, Value: 75.3, Units: cm, Type: numeric
+Date: 2022-04-01, Category: vital-signs, Description: Pain severity - 0-10 verbal numeric rating [Score] - Reported, Value: 3.0, Units: {score}, Type: numeric
+Date: 2022-04-01, Category: vital-signs, Description: Body Weight, Value: 10.4, Units: kg, Type: numeric
+Date: 2022-04-01, Category: vital-signs, Description: Weight-for-length Per age and sex, Value: 79.1, Units: %, Type: numeric
+Date: 2022-04-01, Category: vital-signs, Description: Head Occipital-frontal circumference Percentile, Value: 95.9, Units: %, Type: numeric
+Date: 2022-04-01, Category: vital-signs, Description: Head Occipital-frontal circumference, Value: 47.3, Units: cm, Type: numeric
+Date: 2022-04-01, Category: vital-signs, Description: Diastolic Blood Pressure, Value: 67.0, Units: mm[Hg], Type: numeric
+Date: 2022-04-01, Category: vital-signs, Description: Systolic Blood Pressure, Value: 135.0, Units: mm[Hg], Type: numeric
+Date: 2022-04-01, Category: vital-signs, Description: Heart rate, Value: 74.0, Units: /min, Type: numeric
+Date: 2022-04-01, Category: vital-signs, Description: Respiratory rate, Value: 15.0, Units: /min, Type: numeric
+Date: 2022-04-01, Category: social-history, Description: Tobacco smoking status, Value: Never smoked tobacco (finding), Units: None, Type: text
+Date: 2022-04-08, Category: laboratory, Description: Peanut IgE Ab [Units/volume] in Serum, Value: 0.1, Units: kU/L, Type: numeric
+Date: 2022-04-08, Category: laboratory, Description: Walnut IgE Ab [Units/volume] in Serum, Value: 0.1, Units: kU/L, Type: numeric
+Date: 2022-04-08, Category: laboratory, Description: Codfish IgE Ab [Units/volume] in Serum, Value: 0.0, Units: kU/L, Type: numeric
+Date: 2022-04-08, Category: laboratory, Description: Shrimp IgE Ab [Units/volume] in Serum, Value: 0.1, Units: kU/L, Type: numeric
+Date: 2022-04-08, Category: laboratory, Description: Wheat IgE Ab [Units/volume] in Serum, Value: 0.0, Units: kU/L, Type: numeric
+Date: 2022-04-08, Category: laboratory, Description: Egg white IgE Ab [Units/volume] in Serum, Value: 0.3, Units: kU/L, Type: numeric
+Date: 2022-04-08, Category: laboratory, Description: Soybean IgE Ab [Units/volume] in Serum, Value: 0.1, Units: kU/L, Type: numeric
+Date: 2022-04-08, Category: laboratory, Description: Cow milk IgE Ab [Units/volume] in Serum, Value: 0.0, Units: kU/L, Type: numeric
+Date: 2022-04-08, Category: laboratory, Description: White oak IgE Ab [Units/volume] in Serum, Value: 0.3, Units: kU/L, Type: numeric
+Date: 2022-04-08, Category: laboratory, Description: Common Ragweed IgE Ab [Units/volume] in Serum, Value: 0.2, Units: kU/L, Type: numeric
+Date: 2022-04-08, Category: laboratory, Description: Cat dander IgE Ab [Units/volume] in Serum, Value: 0.2, Units: kU/L, Type: numeric
+Date: 2022-04-08, Category: laboratory, Description: American house dust mite IgE Ab [Units/volume] in Serum, Value: 0.3, Units: kU/L, Type: numeric
+Date: 2022-04-08, Category: laboratory, Description: Cladosporium herbarum IgE Ab [Units/volume] in Serum, Value: 0.1, Units: kU/L, Type: numeric
+Date: 2022-04-08, Category: laboratory, Description: Honey bee IgE Ab [Units/volume] in Serum, Value: 0.3, Units: kU/L, Type: numeric
+Date: 2022-04-08, Category: laboratory, Description: Latex IgE Ab [Units/volume] in Serum, Value: 0.1, Units: kU/L, Type: numeric
+Date: 2022-04-22, Category: vital-signs, Description: Body temperature, Value: 37.3, Units: Cel, Type: numeric
+Date: 2022-07-01, Category: vital-signs, Description: Body Height, Value: 79.4, Units: cm, Type: numeric
+Date: 2022-07-01, Category: vital-signs, Description: Pain severity - 0-10 verbal numeric rating [Score] - Reported, Value: 0.0, Units: {score}, Type: numeric
+Date: 2022-07-01, Category: vital-signs, Description: Body Weight, Value: 11.7, Units: kg, Type: numeric
+Date: 2022-07-01, Category: vital-signs, Description: Weight-for-length Per age and sex, Value: 87.7, Units: %, Type: numeric
+Date: 2022-07-01, Category: vital-signs, Description: Head Occipital-frontal circumference Percentile, Value: 95.9, Units: %, Type: numeric
+Date: 2022-07-01, Category: vital-signs, Description: Head Occipital-frontal circumference, Value: 48.5, Units: cm, Type: numeric
+Date: 2022-07-01, Category: vital-signs, Description: Diastolic Blood Pressure, Value: 78.0, Units: mm[Hg], Type: numeric
+Date: 2022-07-01, Category: vital-signs, Description: Systolic Blood Pressure, Value: 137.0, Units: mm[Hg], Type: numeric
+Date: 2022-07-01, Category: vital-signs, Description: Heart rate, Value: 71.0, Units: /min, Type: numeric
+Date: 2022-07-01, Category: vital-signs, Description: Respiratory rate, Value: 15.0, Units: /min, Type: numeric
+Date: 2022-07-01, Category: social-history, Description: Tobacco smoking status, Value: Never smoked tobacco (finding), Units: None, Type: text
+Date: 2022-09-30, Category: vital-signs, Description: Body Height, Value: 83.1, Units: cm, Type: numeric
+Date: 2022-09-30, Category: vital-signs, Description: Pain severity - 0-10 verbal numeric rating [Score] - Reported, Value: 1.0, Units: {score}, Type: numeric
+Date: 2022-09-30, Category: vital-signs, Description: Body Weight, Value: 12.6, Units: kg, Type: numeric
+Date: 2022-09-30, Category: vital-signs, Description: Weight-for-length Per age and sex, Value: 86.1, Units: %, Type: numeric
+Date: 2022-09-30, Category: vital-signs, Description: Head Occipital-frontal circumference Percentile, Value: 95.9, Units: %, Type: numeric
+Date: 2022-09-30, Category: vital-signs, Description: Head Occipital-frontal circumference, Value: 49.3, Units: cm, Type: numeric
+Date: 2022-09-30, Category: vital-signs, Description: Diastolic Blood Pressure, Value: 81.0, Units: mm[Hg], Type: numeric
+Date: 2022-09-30, Category: vital-signs, Description: Systolic Blood Pressure, Value: 126.0, Units: mm[Hg], Type: numeric
+Date: 2022-09-30, Category: vital-signs, Description: Heart rate, Value: 61.0, Units: /min, Type: numeric
+Date: 2022-09-30, Category: vital-signs, Description: Respiratory rate, Value: 13.0, Units: /min, Type: numeric
+Date: 2022-09-30, Category: social-history, Description: Tobacco smoking status, Value: Never smoked tobacco (finding), Units: None, Type: text
+Date: 2022-12-30, Category: vital-signs, Description: Body Height, Value: 86.3, Units: cm, Type: numeric
+Date: 2022-12-30, Category: vital-signs, Description: Pain severity - 0-10 verbal numeric rating [Score] - Reported, Value: 2.0, Units: {score}, Type: numeric
+Date: 2022-12-30, Category: vital-signs, Description: Body Weight, Value: 13.3, Units: kg, Type: numeric
+Date: 2022-12-30, Category: vital-signs, Description: Weight-for-length Per age and sex, Value: 85.5, Units: %, Type: numeric
+Date: 2022-12-30, Category: vital-signs, Description: Head Occipital-frontal circumference Percentile, Value: 95.9, Units: %, Type: numeric
+Date: 2022-12-30, Category: vital-signs, Description: Head Occipital-frontal circumference, Value: 50.0, Units: cm, Type: numeric
+Date: 2022-12-30, Category: vital-signs, Description: Diastolic Blood Pressure, Value: 79.0, Units: mm[Hg], Type: numeric
+Date: 2022-12-30, Category: vital-signs, Description: Systolic Blood Pressure, Value: 133.0, Units: mm[Hg], Type: numeric
+Date: 2022-12-30, Category: vital-signs, Description: Heart rate, Value: 70.0, Units: /min, Type: numeric
+Date: 2022-12-30, Category: vital-signs, Description: Respiratory rate, Value: 14.0, Units: /min, Type: numeric
+Date: 2022-12-30, Category: social-history, Description: Tobacco smoking status, Value: Never smoked tobacco (finding), Units: None, Type: text
+Date: 2023-06-30, Category: vital-signs, Description: Pain severity - 0-10 verbal numeric rating [Score] - Reported, Value: 2.0, Units: {score}, Type: numeric
+Date: 2023-06-30, Category: vital-signs, Description: Body Weight, Value: 14.4, Units: kg, Type: numeric
+Date: 2023-06-30, Category: vital-signs, Description: Weight-for-length Per age and sex, Value: 76.1, Units: %, Type: numeric
+Date: 2023-06-30, Category: vital-signs, Description: Head Occipital-frontal circumference Percentile, Value: 95.9, Units: %, Type: numeric
+Date: 2023-06-30, Category: vital-signs, Description: Head Occipital-frontal circumference, Value: 51.0, Units: cm, Type: numeric
+Date: 2023-06-30, Category: vital-signs, Description: Diastolic Blood Pressure, Value: 79.0, Units: mm[Hg], Type: numeric
+Date: 2023-06-30, Category: vital-signs, Description: Systolic Blood Pressure, Value: 126.0, Units: mm[Hg], Type: numeric
+Date: 2023-06-30, Category: vital-signs, Description: Heart rate, Value: 86.0, Units: /min, Type: numeric
+Date: 2023-06-30, Category: vital-signs, Description: Respiratory rate, Value: 14.0, Units: /min, Type: numeric
+Date: 2023-06-30, Category: social-history, Description: Tobacco smoking status, Value: Never smoked tobacco (finding), Units: None, Type: text
+Date: 2023-12-29, Category: vital-signs, Description: Body Height, Value: 96.2, Units: cm, Type: numeric
+Date: 2023-12-29, Category: vital-signs, Description: Pain severity - 0-10 verbal numeric rating [Score] - Reported, Value: 3.0, Units: {score}, Type: numeric
+Date: 2023-12-29, Category: vital-signs, Description: Body Weight, Value: 15.6, Units: kg, Type: numeric
+Date: 2023-12-29, Category: vital-signs, Description: Weight-for-length Per age and sex, Value: 79.8, Units: %, Type: numeric
+Date: 2023-12-29, Category: vital-signs, Description: Head Occipital-frontal circumference Percentile, Value: 95.9, Units: %, Type: numeric
+Date: 2023-12-29, Category: vital-signs, Description: Head Occipital-frontal circumference, Value: 51.8, Units: cm, Type: numeric
+Date: 2023-12-29, Category: vital-signs, Description: Body mass index (BMI) [Ratio], Value: 16.9, Units: kg/m2, Type: numeric
+Date: 2023-12-29, Category: vital-signs, Description: Body mass index (BMI) [Percentile] Per age and sex, Value: 67.1, Units: %, Type: numeric
+Date: 2023-12-29, Category: vital-signs, Description: Diastolic Blood Pressure, Value: 81.0, Units: mm[Hg], Type: numeric
+Date: 2023-12-29, Category: vital-signs, Description: Systolic Blood Pressure, Value: 133.0, Units: mm[Hg], Type: numeric
+Date: 2023-12-29, Category: vital-signs, Description: Heart rate, Value: 75.0, Units: /min, Type: numeric
+Date: 2023-12-29, Category: vital-signs, Description: Respiratory rate, Value: 15.0, Units: /min, Type: numeric
+Date: 2023-12-29, Category: social-history, Description: Tobacco smoking status, Value: Never smoked tobacco (finding), Units: None, Type: text
+Date: 2021-07-23, Category: None, Description: QALY, Value: 0.0, Units: a, Type: numeric
+Date: 2022-07-23, Category: None, Description: QALY, Value: 0.0, Units: a, Type: numeric
+Date: 2023-07-23, Category: None, Description: QALY, Value: 0.8, Units: a, Type: numeric
+Date: 2021-07-23, Category: None, Description: DALY, Value: 0.0, Units: a, Type: numeric
+Date: 2022-07-23, Category: None, Description: DALY, Value: 0.0, Units: a, Type: numeric
+Date: 2023-07-23, Category: None, Description: DALY, Value: 0.2, Units: a, Type: numeric
+Date: 2021-07-23, Category: None, Description: QOLS, Value: 1.0, Units: {score}, Type: numeric
+Date: 2022-07-23, Category: None, Description: QOLS, Value: 1.0, Units: {score}, Type: numeric
+Date: 2023-07-23, Category: None, Description: QOLS, Value: 0.8, Units: {score}, Type: numeric
+
