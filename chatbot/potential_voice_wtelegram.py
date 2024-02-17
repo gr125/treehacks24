@@ -1,28 +1,28 @@
-
+#import modules
 from telegram.ext import Updater, MessageHandler, Filters
-import telegram
-import openai
+from telegram import Update
+from openai import OpenAI
 from moviepy.editor import AudioFileClip
-from elevenlabslib import *
+from elevenlabslib import ElevenLabsUser
 
+#define API keys
+TOGETHER_API_KEY = "29e5fa35b999a845ea50daaa50dd7a91f636011d9e111c40671d29495c41cf9d"
+TELEGRAM_API_TOKEN = "6514589295:AAFrIOK8uKzkMSdkc9tiMrK_ooU9-IziudU"
+ELEVENLABS_API_KEY = "6e40489fa4e04e9e30786211e407ecce"
 
-
-TOGETHER_API_KEY = os.environ.get("TOGETHER_API_KEY")
-TELEGRAM_API_TOKEN = "<YOUR_TELEGRAM_BOT_TOKEN>"
-ELEVENLABS_API_KEY = "<YOUR_ELEVENLABS_API_KEY>"
-
+#set elevenlabs voice user
 user = ElevenLabsUser(ELEVENLABS_API_KEY)
 # This is a list because multiple voices can have the same name
 voice = user.get_voices_by_name("Rachel")[0]
 
+#use together.ai api
 client = OpenAI(api_key=TOGETHER_API_KEY,
   base_url='https://api.together.xyz',
 )
 
-
-
 messages = []
 
+#Create healthcare chatbot with together.ai api calls
 def text_message(update, context):
     messages.append({"role": "user", "content": update.message.text})
     chat_completion = client.chat.completions.create(
@@ -49,7 +49,7 @@ def text_message(update, context):
     update.message.reply_text(
         text=f"*[Bot]:* {response_text}", parse_mode=telegram.ParseMode.MARKDOWN)
 
-
+#Create telegram chat interrface with elevenlabs voice response
 def voice_message(update, context):
     update.message.reply_text(
         "I've received a voice message! Please give me a second to respond :)")
@@ -78,64 +78,20 @@ def voice_message(update, context):
 
 
 updater = Updater(TELEGRAM_API_TOKEN, use_context=True)
+
+# Access the dispatcher directly from the updater object
 dispatcher = updater.dispatcher
+
+# Register message handlers
 dispatcher.add_handler(MessageHandler(
     Filters.text & (~Filters.command), text_message))
 dispatcher.add_handler(MessageHandler(Filters.voice, voice_message))
+
+# Start the Bot
 updater.start_polling()
+
+# Run the bot until you press Ctrl-C
 updater.idle()
-
-
-
-from openai import OpenAI
-
-user_ehr = '''
-Mekhi724 Kemmer911
-==================
-ALLERGIES: N/A
---------------------------------------------------------------------------------
-MEDICATIONS:
-2013-08-22 [CURRENT] : Acetaminophen 160 MG for Acute bronchitis (disorder)
-1996-05-12 [CURRENT] : Acetaminophen 160 MG for Acute bronchitis (disorder)
-1995-04-13 [CURRENT] : Acetaminophen 160 MG for Acute bronchitis (disorder)
-1984-01-14 [CURRENT] : Penicillin V Potassium 250 MG for Streptococcal sore throat (disorder)
---------------------------------------------------------------------------------
-CONDITIONS:
-2015-10-30 - 2015-11-07 : Fetus with chromosomal abnormality
-2015-10-30 - 2015-11-07 : Miscarriage in first trimester
-2015-10-30 - 2015-11-07 : Normal pregnancy
-2013-08-22 - 2013-09-08 : Acute bronchitis (disorder)
-1985-08-07 -            : Food Allergy: Fish
---------------------------------------------------------------------------------
-CARE PLANS:
-2013-08-22 [STOPPED] : Respiratory therapy
-                         Reason: Acute bronchitis (disorder)
-                         Activity: Recommendation to avoid exercise
-                         Activity: Deep breathing and coughing exercises
---------------------------------------------------------------------------------
-OBSERVATIONS:
-2014-01-14 : Body Weight                              73.9 kg
-2014-01-14 : Body Height                              163.7 cm
-2014-01-14 : Body Mass Index                          27.6 kg/m2
-2014-01-14 : Systolic Blood Pressure                  133.0 mmHg
-2014-01-14 : Diastolic Blood Pressure                 76.0 mmHg
-2014-01-14 : Blood Pressure                           2.0 
---------------------------------------------------------------------------------
-PROCEDURES:
-2015-10-30 : Standard pregnancy test for Normal pregnancy
-2014-01-14 : Documentation of current medications
---------------------------------------------------------------------------------
-ENCOUNTERS:
-2015-11-07 : Encounter for Fetus with chromosomal abnormality
-2015-10-30 : Encounter for Normal pregnancy
-2014-01-14 : Outpatient Encounter
-2013-08-22 : Encounter for Acute bronchitis (disorder)
---------------------------------------------------------------------------------
-'''
-
-api_key = "29e5fa35b999a845ea50daaa50dd7a91f636011d9e111c40671d29495c41cf9d"
-
-TOGETHER_API_KEY = api_key
 
 
 
