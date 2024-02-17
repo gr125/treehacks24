@@ -9,7 +9,7 @@ This project applies Together.ai API to various simulated patient data to summar
 Clone the repository and open `index.html` in your browser to start exploring the 3D scene.
 
 ```
-git clone https://github.com/gr1215/treehacks23
+git clone https://github.com/gr125/treehacks23.git
 ```
 ## Usage
 
