@@ -24,7 +24,6 @@ git clone https://github.com/gr125/treehacks23.git
 Contributions to enhance or expand the project are welcome. Feel free to fork the repository, make changes, and submit pull requests.
 
 ## License
-This project is open-sourced under the MIT License.
 
 ## Acknowledgments
 
