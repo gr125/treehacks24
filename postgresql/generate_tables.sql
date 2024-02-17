@@ -76,6 +76,14 @@ CREATE TABLE observations (
     "type" VARCHAR(50)
 );
 
+DROP TABLE IF EXISTS account;
+
+CREATE TABLE account (
+    "id" VARCHAR(50),
+    "email" VARCHAR(50),
+    "password" VARCHAR(50) DEFAULT 'password'
+);
+
 COPY observations("date","patient","encounter","category","code","description","value","units","type")
 FROM '/Users/brendantang/Developer/Treehacks/output/csv/observations.csv'
 DELIMITER ','
@@ -96,3 +104,6 @@ FROM '/Users/brendantang/Developer/Treehacks/output/csv/patients.csv'
 DELIMITER ','
 CSV HEADER;
 
+INSERT INTO account (id, email)
+SELECT id, CONCAT(first, last, '@treehacks.edu')
+FROM patients;
