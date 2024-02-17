@@ -69,41 +69,48 @@ def get_summary(api_key, user_ehr):
     return chat_completion.choices[0].message.content
 
 # append question to chat history prior to calling function
-def get_answer(api_key, user_summary, question, chat_history):
+def get_answer(api_key, user_summary, question):
     client = OpenAI(api_key=api_key,
         base_url='https://api.together.xyz',
     )
 
-    if len(chat_history)==0:
-        chat_history = [
+    if len(chat)==0:
+        chat.append(
             {
                 "role": "system",
-                "content": "You are an AI assistant answering questions the user asks about their health. You are not a physician or a person of authority. You are given this information about the patient: "+user_summary,
-            },
+                "content": "You are an AI assistant answering questions the user asks about their health, taking into consideration any questions the user previously asked. You are not a physician or a person of authority. You cannot answer any questions irrelevant to medical health such as payment information, physician information, hospital information, and healthcare providers. You are given this information about the patient: "+user_summary,
+            }
+        )
+        chat.append(
             {
                 "role": "user",
                 "content": "I am this patient. Please answer this question in detail: "+question,
             }
-        ]
+        )
     else:
-        chat_history.append( 
-             {"role":"user", "content": "I am this patient. "+question}
+        chat.append( 
+             {"role":"user", 
+              "content": "I am this patient. Please answer this question in detail: "+question}
         )
 
     chat_completion = client.chat.completions.create(
-    messages=chat_history,
+    messages=chat,
     model="codellama/CodeLlama-13b-Instruct-hf",
     max_tokens=1024)
-
+    chat.append(
+        {"role":"assistant", "content":chat_completion.choices[0].message.content}
+    )
     return chat_completion.choices[0].message.content
 
 summary = get_summary(api_key=TOGETHER_API_KEY, user_ehr=user_ehr)
 print(summary)
 chat = []
-print(get_answer(
-    api_key=TOGETHER_API_KEY, 
-    user_summary=summary, 
-    question=input("Ask me about your health conditions!\n"),
-    chat_history=chat
+user_input = input("Ask me about your health conditions, or type 'quit' to end the conversation!\n")
+while user_input != "quit":
+    bot_response = get_answer(
+        api_key=TOGETHER_API_KEY, 
+        user_summary=summary, 
+        question=user_input,
     )
-)
+    print(bot_response)
+    user_input = input("Ask me about your health conditions, or type 'quit' to end the conversation!\n")
