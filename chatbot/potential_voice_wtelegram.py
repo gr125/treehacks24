@@ -36,6 +36,7 @@ client = OpenAI(api_key=TOGETHER_API_KEY,
 
 messages = []
 
+#Get summary of EHR with LLM
 def get_summary(api_key, user_ehr):
     client = OpenAI(api_key=api_key,
         base_url='https://api.together.xyz',
@@ -90,7 +91,7 @@ def get_answer(api_key, user_summary, question):
     chat.append(
         {"role":"assistant", "content":chat_completion.choices[0].message.content}
     )
-    response_text = response["choices"][0]["message"]["content"]
+    response_text = chat_completion["choices"][0]["message"]["content"]
     response_byte_audio = voice.generate_audio_bytes(response_text)
     with open('response_elevenlabs.mp3', 'wb') as f:
         f.write(response_byte_audio)
@@ -102,10 +103,10 @@ def get_answer(api_key, user_summary, question):
 
     return chat_completion.choices[0].message.content
 
-#Create telegram chat interrface with elevenlabs voice response
+#Convert input voice from Telegram to text and elevenslab speech response from LLM
 def voice_message(update, context):
     update.message.reply_text(
-        "I've received a voice message! Please give me a second to respond :)")
+        "Thank you for your response! Please wait a moment for an answer.")
     voice_file = context.bot.getFile(update.message.voice.file_id)
     voice_file.download("voice_message.ogg")
     audio_clip = AudioFileClip("voice_message.ogg")
@@ -119,6 +120,15 @@ def voice_message(update, context):
         model="mistralai/Mixtral-8x7B-Instruct-v0.1",
         messages=messages
     )
+    response_text = response["choices"][0]["message"]["content"]
+    response_byte_audio = voice.generate_audio_bytes(response_text)
+    with open('response_elevenlabs.mp3', 'wb') as f:
+        f.write(response_byte_audio)
+    context.bot.send_voice(chat_id=update.message.chat.id,
+                           voice=open('response_elevenlabs.mp3', 'rb'))
+    update.message.reply_text(
+        text=f"*[Bot]:* {response_text}", parse_mode=telegram.ParseMode.MARKDOWN)
+    messages.append({"role": "assistant", "content": response_text})
     
 
 summary = get_summary(api_key=TOGETHER_API_KEY, user_ehr=user_ehr)
@@ -132,7 +142,6 @@ while user_input != "quit":
         question=user_input,
     )
     print(bot_response)
-    user_input = input("Ask me about your health conditions, or type 'quit' to end the conversation!\n")
     response_text = response["choices"][0]["message"]["content"]
     messages.append({"role": "assistant", "content": response_text})
     response_byte_audio = voice.generate_audio_bytes(response_text)
@@ -142,6 +151,8 @@ while user_input != "quit":
                            voice=open('response_elevenlabs.mp3', 'rb'))
     update.message.reply_text(
         text=f"*[Bot]:* {response_text}", parse_mode=telegram.ParseMode.MARKDOWN)
+    user_input = input("Ask me about your health conditions, or type 'quit' to end the conversation!\n")
+   
     
 
 
