@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import './home.css'
+import logo from './assets/logo.png'
 
 function Home({ email }) {
     const [profileData, setProfileData] = useState(null)
