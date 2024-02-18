@@ -35,19 +35,24 @@ code {
   Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
   font-weight: bold;
 }
-
-.h1 {
-  display: flex;
-  flex-direction: column;
-  font-size: 64px;
-  color: #64ca79;
-  font-weight: bolder;
-  align-items: center;
-  justify-content: center;
-
-}
-
-input[type="button"] {
+h1 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    justify-content: center;
+      font-size: 64px;
+    color:#64ca79;
+    margin-top: 20px; /* Add margin top to center vertically */
+}  
+input {
+    display: flex;
+    width: 300px; /* Adjust width as needed */
+    padding: 10px;
+    margin: 5px;
+  }
+button {
+    display: flex;
     border: none;
     background: #64ca79;
     color: rgb(255, 255, 255);
@@ -57,22 +62,16 @@ input[type="button"] {
     cursor: pointer;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-weight: bold;
-}
-.welcomeheader {
-  color: #64ca79;
-  margin-top: -200px;
+    margin: 20px auto;
 }
 
 .loginheader {
-  display: block;
   color: #64ca79;
   margin-top: -449px;
   margin-bottom: -220px;
 }
 
 .footer {
-  display: block;
-  position: absolute;
   bottom: 0px;
   width: 100%;
   background-color: #177229;
