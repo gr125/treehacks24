@@ -1,4 +1,5 @@
 #import modules
+import os
 from telegram.ext import Updater, MessageHandler, Filters
 from telegram import Update
 from openai import OpenAI
@@ -12,7 +13,14 @@ TELEGRAM_API_TOKEN = "6514589295:AAFrIOK8uKzkMSdkc9tiMrK_ooU9-IziudU"
 ELEVENLABS_API_KEY = "6e40489fa4e04e9e30786211e407ecce"
 
 #Automate textual tabulation of user_ehr simulated data
-with open('output.txt', 'r') as file:
+# Get the directory of the current script
+script_dir = os.path.dirname(os.path.abspath('postgresql\output.txt'))
+
+# Construct the path to the output.txt file relative to the script directory
+output_file_path = os.path.join(script_dir, 'output.txt')
+
+# Open the .txt file using the relative path
+with open(output_file_path, 'r') as file:
     user_ehr = file.read().replace('\n', '')
 
 
@@ -28,38 +36,13 @@ client = OpenAI(api_key=TOGETHER_API_KEY,
 
 messages = []
 
-#Create healthcare chatbot with together.ai api calls
-def text_message(update, context):
-    messages.append({"role": "user", "content": update.message.text})
-    chat_completion = client.chat.completions.create(
-      messages=[
-        {
-          "role": "system",
-          "content": "You are an AI assistant providing the user with a summary of their electronic health record. You are not a physician or a person of authority. You are given this information about the patient: "+user_ehr,
-        },
-        {
-          "role": "user",
-          "content": "Create a summary-style report for this patient that describes this patient's current health condition with the aim of educating the patient about their health. Format the report using bullet points and concise language for increased readability. At the end of the report, include a section of recommendations for actions the patient should take, but emphasize that the patient should communicate with their physician. Title the report 'Current Health Report for [patient]' replacing [patient] with the Patient's first and last name.",
-        }
-      ],
-      model="codellama/CodeLlama-13b-Instruct-hf",
-      max_tokens=1024
-    )
-    response_text = response["choices"][0]["message"]["content"]
-    messages.append({"role": "assistant", "content": response_text})
-    response_byte_audio = voice.generate_audio_bytes(response_text)
-    with open('response_elevenlabs.mp3', 'wb') as f:
-        f.write(response_byte_audio)
-    context.bot.send_voice(chat_id=update.message.chat.id,
-                           voice=open('response_elevenlabs.mp3', 'rb'))
-    update.message.reply_text(
-        text=f"*[Bot]:* {response_text}", parse_mode=telegram.ParseMode.MARKDOWN)
-
+#Get summary of EHR with LLM
 def get_summary(api_key, user_ehr):
     client = OpenAI(api_key=api_key,
         base_url='https://api.together.xyz',
     )
-
+    update.message.reply_text(
+        "I've received a text message! Please give me a second to respond :)")
     chat_completion = client.chat.completions.create(
     messages=[
         {
@@ -108,26 +91,22 @@ def get_answer(api_key, user_summary, question):
     chat.append(
         {"role":"assistant", "content":chat_completion.choices[0].message.content}
     )
+    response_text = chat_completion["choices"][0]["message"]["content"]
+    response_byte_audio = voice.generate_audio_bytes(response_text)
+    with open('response_elevenlabs.mp3', 'wb') as f:
+        f.write(response_byte_audio)
+    context.bot.send_voice(chat_id=update.message.chat.id,
+                           voice=open('response_elevenlabs.mp3', 'rb'))
+    update.message.reply_text(
+        text=f"*[Bot]:* {response_text}", parse_mode=telegram.ParseMode.MARKDOWN)
+    messages.append({"role": "assistant", "content": response_text})
+
     return chat_completion.choices[0].message.content
 
-summary = get_summary(api_key=TOGETHER_API_KEY, user_ehr=user_ehr)
-print(summary)
-chat = []
-user_input = input("Ask me about your health conditions, or type 'quit' to end the conversation!\n")
-while user_input != "quit":
-    bot_response = get_answer(
-        api_key=TOGETHER_API_KEY, 
-        user_summary=summary, 
-        question=user_input,
-    )
-    print(bot_response)
-    user_input = input("Ask me about your health conditions, or type 'quit' to end the conversation!\n")
-
-
-#Create telegram chat interrface with elevenlabs voice response
+#Convert input voice from Telegram to text and elevenslab speech response from LLM
 def voice_message(update, context):
     update.message.reply_text(
-        "I've received a voice message! Please give me a second to respond :)")
+        "Thank you for your response! Please wait a moment for an answer.")
     voice_file = context.bot.getFile(update.message.voice.file_id)
     voice_file.download("voice_message.ogg")
     audio_clip = AudioFileClip("voice_message.ogg")
@@ -150,6 +129,31 @@ def voice_message(update, context):
     update.message.reply_text(
         text=f"*[Bot]:* {response_text}", parse_mode=telegram.ParseMode.MARKDOWN)
     messages.append({"role": "assistant", "content": response_text})
+    
+
+summary = get_summary(api_key=TOGETHER_API_KEY, user_ehr=user_ehr)
+print(summary)
+chat = []
+user_input = input("Ask me about your health conditions, or say or type 'quit' to end the conversation!\n")
+while user_input != "quit":
+    bot_response = get_answer(
+        api_key=TOGETHER_API_KEY, 
+        user_summary=summary, 
+        question=user_input,
+    )
+    print(bot_response)
+    response_text = response["choices"][0]["message"]["content"]
+    messages.append({"role": "assistant", "content": response_text})
+    response_byte_audio = voice.generate_audio_bytes(response_text)
+    with open('response_elevenlabs.mp3', 'wb') as f:
+        f.write(response_byte_audio)
+    context.bot.send_voice(chat_id=update.message.chat.id,
+                           voice=open('response_elevenlabs.mp3', 'rb'))
+    update.message.reply_text(
+        text=f"*[Bot]:* {response_text}", parse_mode=telegram.ParseMode.MARKDOWN)
+    user_input = input("Ask me about your health conditions, or type 'quit' to end the conversation!\n")
+   
+    
 
 
 updater = Updater(TELEGRAM_API_TOKEN, use_context=True)

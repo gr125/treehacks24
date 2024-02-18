@@ -84,6 +84,27 @@ CREATE TABLE account (
     "password" VARCHAR(50) DEFAULT 'password'
 );
 
+DROP TABLE IF EXISTS careplans;
+
+-- Create the table
+CREATE TABLE careplans (
+    "id" VARCHAR(50),
+    "start" DATE,
+    "stop" DATE,
+    "patient" VARCHAR(50),
+    "encounter" VARCHAR(50),
+    "code" VARCHAR(50),
+    "description" VARCHAR(255),
+    "reasoncode" VARCHAR(50),
+    "reasondescription" VARCHAR(255)
+);
+
+-- Copy data from the CSV file
+COPY careplans("id","start","stop","patient","encounter","code","description","reasoncode","reasondescription")
+FROM '/Users/brendantang/Developer/Treehacks/output/csv/careplans.csv'
+DELIMITER ','
+CSV HEADER;
+
 COPY observations("date","patient","encounter","category","code","description","value","units","type")
 FROM '/Users/brendantang/Developer/Treehacks/output/csv/observations.csv'
 DELIMITER ','

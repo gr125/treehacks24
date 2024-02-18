@@ -176,3 +176,7 @@ Date: 2021-07-23, Category: None, Description: QOLS, Value: 1.0, Units: {score},
 Date: 2022-07-23, Category: None, Description: QOLS, Value: 1.0, Units: {score}, Type: numeric
 Date: 2023-07-23, Category: None, Description: QOLS, Value: 0.8, Units: {score}, Type: numeric
 
+Careplans:
+Start: 2022-02-15, Stop: None, Description: Skin condition care, ReasonDescription: Atopic dermatitis
+Start: 2022-03-17, Stop: None, Description: Self-care interventions (procedure), ReasonDescription: None
+
