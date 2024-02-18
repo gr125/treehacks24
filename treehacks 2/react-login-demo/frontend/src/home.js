@@ -44,8 +44,8 @@ return (
     <div>
       <header className="nav"></header>
       <div className='grid-container'>
-      <h1 className="welcomeheader">Welcome!</h1>
-      <div className='logo'><img src={logo} alt='' /></div>
+        <h1 className="welcomeheader">Welcome!</h1>
+        <div className='logo'><img src={logo} alt='' /></div>
       </div>
       {loading ? ( // Conditional rendering of loading indicator
                 <h2 className="loadingheader">Loading health summary...</h2>
