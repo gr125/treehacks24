@@ -42,7 +42,10 @@ function Home({ email }) {
 return (
     <div>
       <header className="nav"></header>
-      <h1 className="welcomeheader">Welcome {email}!</h1>
+      <div className='grid-container'>
+      <h1 className="welcomeheader">Welcome!</h1>
+      <div className='logo'><img src={logo} alt='' /></div>
+      </div>
       {loading ? ( // Conditional rendering of loading indicator
                 <h2 className="loadingheader">Loading health summary...</h2>
             ) : (

@@ -71,7 +71,7 @@ input[type="button"] {
   width: 100%;
 }
 
-.loginheader {
+.loadingheader {
   display: flex;
   justify-content: center;
   color: #64ca79;
