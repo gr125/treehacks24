@@ -34,6 +34,16 @@ def get_patient_info(patient_id):
         """, (patient_id,))
         observations_data = cur.fetchall()
 
+        # Fetch careplans information
+        cur.execute("""
+            SELECT start, stop, description, reasondescription
+            FROM careplans 
+            WHERE patient = %s 
+            AND ((stop IS NULL OR stop >= CURRENT_DATE - INTERVAL '2 years') 
+            OR start >= CURRENT_DATE - INTERVAL '4 years');
+        """, (patient_id,))
+        careplans_data = cur.fetchall()
+
         # Close cursor and connection
         cur.close()
         conn.close()
@@ -43,7 +53,8 @@ def get_patient_info(patient_id):
             "patient": patient_data,
             "allergies": allergies_data,
             "conditions": conditions_data,
-            "observations": observations_data
+            "observations": observations_data,
+            "careplans": careplans_data
         }
 
     except psycopg2.Error as e:
@@ -77,6 +88,13 @@ def write_patient_info_to_file(patient_info, file_path):
             file.write("Observations:\n")
             for observation in observations_data:
                 file.write(f"Date: {observation[0]}, Category: {observation[1]}, Description: {observation[2]}, Value: {observation[3]}, Units: {observation[4]}, Type: {observation[5]}\n")
+            file.write("\n")
+
+            # Extracting careplans data
+            careplans_data = patient_info['careplans']
+            file.write("Careplans:\n")
+            for careplan in careplans_data:
+                file.write(f"Start: {careplan[0]}, Stop: {careplan[1]}, Description: {careplan[2]}, ReasonDescription: {careplan[3]}\n")
             file.write("\n")
         
         print(f"Patient information has been written to {file_path}")
@@ -113,6 +131,14 @@ def format_patient_info(patient_info):
     for observation in observations_data:
         output += f"Date: {observation[0]}, Category: {observation[1]}, Description: {observation[2]}, Value: {observation[3]}, Units: {observation[4]}, Type: {observation[5]}\n"
     output += "\n"
+
+    # Extracting careplans data
+    careplans_data = patient_info['careplans']
+    output += "Careplans:\n"
+    for careplan in careplans_data:
+        output += f"Start: {careplan[0]}, Stop: {careplan[1]}, Description: {careplan[2]}, ReasonDescription: {careplan[3]}\n"
+    output += "\n"
+
 
     return output
 
