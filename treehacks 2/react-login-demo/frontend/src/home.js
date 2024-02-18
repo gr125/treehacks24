@@ -57,7 +57,7 @@ function Home({ email }) {
     return (
         <div>
             <header className="nav"></header>
-            <div style={{ overflowY: 'auto' }}>
+            <div className='scrollable-content' style={{ overflowY: 'auto' }}>
                 <div className='grid-container'>
                     <h1 className="welcomeheader">Welcome!</h1>
                     <div className='logo'><img src={logo} alt='' /></div>

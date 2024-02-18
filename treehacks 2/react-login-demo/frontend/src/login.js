@@ -39,8 +39,8 @@ function Login({ onLogin }) {
             return
         }
 
-        const hardcodedEmail = 'example@example.com';
-        const hardcodedPassword = 'password';
+        const hardcodedEmail = 'Trent525Christiansen251@treehacks.edu';
+        const hardcodedPassword = 'Trent525Christiansen251';
 
         if (email === hardcodedEmail && password === hardcodedPassword) {
             // Authentication successful

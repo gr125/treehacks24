@@ -3,7 +3,6 @@ html,
 body {
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell,
   Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-  overflow-y: auto;
   flex-direction: column;
   justify-content: center;
   align-items: center;
@@ -120,3 +119,9 @@ input {
   align-items: center;
   height: 70vh;
 }
+
+.scrollable-content {
+    max-height: calc(100vh - 100px); /* Adjust the value according to your header height */
+    overflow-y: auto;
+}
+
