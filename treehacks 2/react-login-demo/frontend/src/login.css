@@ -1,14 +1,12 @@
 html,
-
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell,
     Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-    overflow: hidden;
-   
+  overflow: hidden;
 }
 
-.nav{
+.nav {
   background: #9be5aa;
   height: 10vh;
   width: 100%;
@@ -32,45 +30,90 @@ code {
   border-radius: 5px;
   padding: 0;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell,
-  Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+    Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
   font-weight: bold;
-}  
+}
+
 input {
-  display: flex;
-  width: 300px; /* Adjust width as needed */
+  width: 300px;
   padding: 10px;
   margin: 5px;
-}
-button {
-  display: flex;
+  background-color: #f2f2f2; /* Grey background color */
   border: none;
+  border-radius: 6px;
+  display: flex; /* Added */
+  align-items: center; /* Added */
+}
+
+button {
+  border: none;
+  display: flex;
+  justify-content: center;
   background: #64ca79;
   color: rgb(255, 255, 255);
   padding: 15px 30px;
   font-size: 24px;
-  border-radius: 8px;
+  border-radius: 50px;
   cursor: pointer;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   font-weight: bold;
   margin: 20px auto;
   margin-top: 50px;
+  width: 200px;
 }
 
 .loginheader {
-  display: flex;
-  border: none;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   font-weight: bold;
   font-size: 45px;
   color: #64ca79;
   margin-top: 0px;
-  margin-bottom: 35px;
+  margin-bottom: 15px;
   justify-content: center;
 }
 
-.textbox {
+.inputs {
+  margin-top: 35px;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  gap: 25px;
+  border: 1px;
+  outline: 2px;
+}
+
+.input {
+  display: flex;
+  align-items: center;
+  margin: auto;
+  width: 300px;
+  height: 70px;
+  color: rgb(143, 137, 137);
+  border-radius: 6px;
+  border: 1px;
+  outline: 2px;
+  background: rgb(215, 211, 211);
+}
+
+.input img {
+  margin: 0px 10px;
+}
+
+.input input {
+  height: 50px;
+  width: 100%;
+  border: 1px;
+  outline: 2px;
+  color: rgb(143, 137, 137);
+  background: rgb(215, 211, 211);
+  font-size: 19px;
+}
+
+.underline {
+  width: 300px;
+  height: 6px;
+  background: #64ca79;
+  border-radius: 9px;
+  margin-top: 0;
 }
 
 .footer {
@@ -87,20 +130,18 @@ button {
   align-items: center;
   height: 70vh;
 }
+
 .welcomeheader {
-  display: flex;
-  border: none;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   font-weight: bold;
   font-size: 30px;
   color: #64ca79;
-  margin-top: 0px;
-  margin-bottom: 35px;
+  margin-top: 10px;
+  margin-bottom: 25px;
   justify-content: center;
 }
+
 .loadingheader {
-  display: flex;
-  border: none;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   font-weight: bold;
   font-size: 30px;

@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import './login.css'
+import email_icon from './assets/email.png'
+import password_icon from './assets/password.png'
 
 function Login({ onLogin }) {
     const [email, setEmail] = useState("")
@@ -50,11 +52,14 @@ function Login({ onLogin }) {
 
     };
     return (
-        <div>
-          <header class="nav"></header>
-          <div class='verticalbox'>
-          <div class='loginheader'>Login Page</div>
-          <div class='textbox'>
+        <div className="container">
+          <header className="nav"></header>
+          <div className='verticalbox'>
+            <div className='loginheader'>Login Page</div>
+            <div className='underline'></div>
+          <div className='inputs'>
+            <div className='input'>
+          <img src={email_icon} alt='' />
           <input
             type="text"
             placeholder="Email"
@@ -62,13 +67,15 @@ function Login({ onLogin }) {
             onChange={(e) => setEmail(e.target.value)}
           />
           </div>
-          <div class='textbox'>
+          <div className='input'>
+          <img src={password_icon} alt='' />
           <input
             type="password"
             placeholder="Password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
+          </div>
           </div>
           <button onClick={onButtonClick}>Login</button>
           {emailError && <p style={{ color: 'red' }}>{emailError}</p>}
