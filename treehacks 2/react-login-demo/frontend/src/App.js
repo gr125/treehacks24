@@ -40,7 +40,7 @@ function App() {
 
     <div>
       {loggedIn ? (
-        <Home email={email} />
+        <Home email={email}/>
       ) : (
         <Login onLogin={handleLogin} />
       )}

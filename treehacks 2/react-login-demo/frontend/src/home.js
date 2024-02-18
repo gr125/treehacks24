@@ -1,49 +1,41 @@
 import React from "react"
 import { SignedIn, SignedOut, SignInButton, SignOutButton, useUser } from '@clerk/clerk-react'
+import { useState, useEffect } from 'react'
+import axios from "axios";
 
 function Home({ email }) {
-    // const { loggedIn, email } = props
-    // const navigate = useNavigate();
-    
-    // const onButtonClick = () => {
-    //     if (loggedIn) {
-    //         localStorage.removeItem("user")
-    //         props.setLoggedIn(false)
-    //     } else {
-    //         navigate("/login")
-    //     }
-    // }
+    const [profileData, setProfileData] = useState(null)
 
-//     return (
+    function getData() {
+        axios({
+          method: "GET",
+          url:"/profile",
+        })
+        .then((response) => {
+          const res =response.data
+          setProfileData(res)
+        }).catch((error) => {
+          if (error.response) {
+            console.log(error.response)
+            console.log(error.response.status)
+            console.log(error.response.headers)
+            }
+        })}
     
-//         <div>
+    useEffect(() => {
+        let ignore = false;
+            
+        if (!ignore)  getData()
+            return () => { ignore = true; }
+    },[]);
 
-// <div className="nav"></div>
-        
-//     <div className="mainContainer">
-        
-//         <div className={"titleContainer"}>
-//             <div className="welcomeheader">Welcome!</div>
-//         </div>
-//         <div className={"buttonContainer"}>
-//             <input
-//                 className={"inputButton"}
-//                 type="button"
-//                 onClick={onButtonClick}
-//                 value={loggedIn ? "Log out" : "Log in"} />
-//             {(loggedIn ? <div>
-//                 Your email address is {email}
-//             </div> : <div/>)}
-//         </div>
-//         <div class="footer"></div>
-//     </div>
-//     </div>
-//     )
 return (
     <div>
       <header class="nav"></header>
       <h1>Welcome {email}!</h1>
-      <p>You have successfully logged in.</p>
+      <div style={{ maxHeight: '300px', overflowY: 'auto',  padding: '10px' }}>
+                {profileData}
+            </div>
       <footer class="footer"></footer>
     </div>
   );

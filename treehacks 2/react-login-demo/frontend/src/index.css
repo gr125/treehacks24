@@ -78,3 +78,6 @@ input[type="button"] {
   background-color: #177229;
   height: 75px;
 }
+div {
+    white-space: pre-wrap;
+}
