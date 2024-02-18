@@ -98,6 +98,7 @@ const Login = (props) => {
         <br />
         <div className={"inputContainer"}>
             <input
+                type="password"
                 value={password}
                 placeholder="Password"
                 onChange={ev => setPassword(ev.target.value)}
