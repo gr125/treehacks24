@@ -71,6 +71,7 @@ button {
   margin-top: 0px;
   margin-bottom: 15px;
   justify-content: center;
+  width: 100%;
 }
 
 .inputs {
