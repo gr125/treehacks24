@@ -1,63 +1,25 @@
-import React, { useState, useEffect } from 'react';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import Home from './home';
-import Login from './login'
-import './App.css';
+import React, { useState } from 'react';
+import LoginPage from './login';
+import DashboardPage from './dashboard';
 
-function App() {
-  const [loggedIn, setLoggedIn] = useState(false)
-  const [email, setEmail] = useState("")
+const App = () => {
+    const [loggedIn, setLoggedIn] = useState(false);
+    const [userId, setUserId] = useState('');
 
-  const handleLogin = (email) => {
-    setEmail(email);
-    setLoggedIn(true);
-  };
+    const handleLogin = (id) => {
+        setUserId(id);
+        setLoggedIn(true);
+    };
 
-//   useEffect(() => {
-//     // Fetch the user email and token from local storage
-//     const user = JSON.parse(localStorage.getItem("user"))
-
-//     // If the token/email does not exist, mark the user as logged out
-//     if (!user || !user.token) {
-//       setLoggedIn(false)
-//       return
-//     }
-
-//     // If the token exists, verify it with the auth server to see if it is valid
-//     fetch("http://localhost:3080/verify", {
-//             method: "POST",
-//             headers: {
-//                 'jwt-token': user.token
-//               }
-//         })
-//         .then(r => r.json())
-//         .then(r => {
-//             setLoggedIn('success' === r.message)
-//             setEmail(user.email || "")
-//         })
-//   }, [])
-  return (
-
-    <div>
-      {loggedIn ? (
-        <Home email={email} />
-      ) : (
-        <Login onLogin={handleLogin} />
-      )}
-
-    </div>
-  );
-
-//   return (
-//     <div className="App">
-//       <BrowserRouter>
-//         <Routes>
-//           <Route path="/" element={<Home email={email} loggedIn={loggedIn} setLoggedIn={setLoggedIn}/>} />
-//           <Route path="/login" element={<Login setLoggedIn={setLoggedIn} setEmail={setEmail} />} />
-//         </Routes>
-//       </BrowserRouter>
-//     </div>
-//   );
-}
+    return (
+        <div>
+            {loggedIn ? (
+                <DashboardPage id={userId} />
+            ) : (
+                <LoginPage handleLogin={handleLogin} />
+            )}
+        </div>
+    );
+};
 
 export default App;

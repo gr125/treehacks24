@@ -1,0 +1,57 @@
+/* dashboard.css */
+
+.dashboard-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.dashboard-heading {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.user-info-list {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.patient-info {
+    margin-bottom: 30px;
+}
+
+.patient-info h4 {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.patient-info p {
+    margin-bottom: 5px;
+}
+
+.careplans,
+.allergies,
+.conditions,
+.observations {
+    margin-top: 30px;
+}
+
+.careplans h4,
+.allergies h4,
+.conditions h4,
+.observations h4 {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.careplans p,
+.allergies p,
+.conditions p,
+.observations p {
+    margin-bottom: 5px;
+}
+
+.scrollable-content {
+    max-height: calc(100vh - 100px); /* Adjust the value according to your header height */
+    overflow-y: auto;
+}

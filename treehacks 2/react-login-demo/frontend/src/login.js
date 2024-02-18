@@ -1,152 +1,43 @@
-import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import './login.css'
+import React, { useState } from 'react';
+import axios from 'axios';
+import './login.css'; // Import the CSS file
 
-function Login({ onLogin }) {
-    const [email, setEmail] = useState("")
-    const [password, setPassword] = useState("")
-    const [emailError, setEmailError] = useState("")
-    const [passwordError, setPasswordError] = useState("")
-    const [logInError, setLogInError] = useState("")
-    
-    //const navigate = useNavigate();
-        
-    const onButtonClick = () => {
+const LoginPage = ({ handleLogin }) => {
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const [error, setError] = useState('');
 
-        setEmailError("")
-        setPasswordError("")
-
-        if ("" === email) {
-            setEmailError("Please enter your email")
-            return
+    const handleLoginClick = async () => {
+        try {
+            // Send login request to the server
+            const response = await axios.post('http://localhost:3080/auth', { email, password });
+            console.log(email, password)
+            // If login is successful, call handleLogin function
+            if (response.data.message === 'success') {
+                handleLogin(response.data.userId);
+            } else {
+                setError('Invalid email or password');
+            }
+        } catch (error) {
+            setError('An error occurred. Please try again.');
         }
-
-        if (!/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/.test(email)) {
-            setEmailError("Please enter a valid email")
-            return
-        }
-
-        if ("" === password) {
-            setPasswordError("Please enter a password")
-            return
-        }
-
-        if (password.length < 7) {
-            setPasswordError("The password must be 8 characters or longer")
-            return
-        }
-
-        const hardcodedEmail = 'example@example.com';
-        const hardcodedPassword = 'password';
-
-        if (email === hardcodedEmail && password === hardcodedPassword) {
-            // Authentication successful
-            onLogin(email);
-        } else {
-            // Authentication failed
-            setLogInError('Invalid email or password');
-        }        
-  
-
     };
+
     return (
-        <div>
-          <header class="nav"></header>
-          <h1>Login Page</h1>
-          <input
-            type="text"
-            placeholder="Email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-          />
-          <input
-            type="password"
-            placeholder="Password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-          />
-          <button onClick={onButtonClick}>Login</button>
-          {emailError && <p style={{ color: 'red' }}>{emailError}</p>}
-          {passwordError && <p style={{ color: 'red' }}>{passwordError}</p>}
-          {logInError && <p style={{ color: 'red' }}>{logInError}</p>}
-          <footer class="footer"></footer>
+        <div className="container"> {/* Apply class name from CSS */}
+            <h2>Login</h2>
+            <div className="inputContainer"> {/* Apply class name from CSS */}
+                <label className="label">Email:</label> {/* Apply class name from CSS */}
+                <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} className="input" /> {/* Apply class name from CSS */}
+            </div>
+            <div className="inputContainer"> {/* Apply class name from CSS */}
+                <label className="label">Password:</label> {/* Apply class name from CSS */}
+                <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} className="input" /> {/* Apply class name from CSS */}
+            </div>
+            <button onClick={handleLoginClick} className="button">Login</button> {/* Apply class name from CSS */}
+            {error && <p className="error">{error}</p>} {/* Apply class name from CSS */}
         </div>
-      );
-    }
-    
+    );
+};
 
-
-//     const checkAccountExists = (callback) => {
-//         fetch("http://localhost:3080/check-account", {
-//             method: "POST",
-//             headers: {
-//                 'Content-Type': 'application/json'
-//               },
-//             body: JSON.stringify({email})
-//         })
-//         .then(r => r.json())
-//         .then(r => {
-//             callback(r?.userExists)
-//         })
-//     }
-
-//     const logIn = () => {
-//         fetch("http://localhost:3080/auth", {
-//             method: "POST",
-//             headers: {
-//                 'Content-Type': 'application/json'
-//               },
-//             body: JSON.stringify({email, password})
-//         })
-//         .then(r => r.json())
-//         .then(r => {
-//             if ('success' === r.message) {
-//                 localStorage.setItem("user", JSON.stringify({email, token: r.token}))
-//                 props.setLoggedIn(true)
-//                 props.setEmail(email)
-//                 navigate("/")
-//             } else {
-//                 window.alert("Wrong email or password")
-//             }
-//         })
-//     }
-
-//     return <div>
-//     <div className="nav"></div>
-//         <div className={"mainContainer"}>
-//         <div className={"titleContainer"}>
-//             <div className="loginheader">Account Login</div>
-//         </div>
-//         <br />
-//         <div className={"inputContainer"}>
-//             <input
-//                 value={email}
-//                 placeholder="Email"
-//                 onChange={ev => setEmail(ev.target.value)}
-//                 className={"inputBox"} />
-//             <label className="errorLabel">{emailError}</label>
-//         </div>
-//         <br />
-//         <div className={"inputContainer"}>
-//             <input
-//                 type="password"
-//                 value={password}
-//                 placeholder="Password"
-//                 onChange={ev => setPassword(ev.target.value)}
-//                 className={"inputBox"} />
-//             <label className="errorLabel">{passwordError}</label>
-//         </div>
-//         <br />
-//         <div className={"inputContainer"}>
-//             <input
-//                 className={"inputButton"}
-//                 type="button"
-//                 onClick={onButtonClick}
-//                 value={"Log in"} />
-//         </div>
-//         <div class="footer"></div>
-//     </div>
-//     </div>
-// }
-
-export default Login
+export default LoginPage;
