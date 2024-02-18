@@ -85,8 +85,6 @@ app.get("/user/:userId", async (req, res) => {
             observations: observationsResult.rows
         };
 
-        console.log(userData)
-
         // Return user information
         res.status(200).json(userData);
     } catch (error) {
