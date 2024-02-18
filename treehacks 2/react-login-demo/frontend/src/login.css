@@ -15,7 +15,7 @@ body {
 .logo img {
   width: 85px; /* Adjust width as needed */
   height: auto; /* Maintain aspect ratio */
-  margin-left: 80px; /* Adjust margin as needed */
+  margin-left: 75px; /* Adjust margin as needed */
 }
 .nav {
   background: #9be5aa;
@@ -83,7 +83,7 @@ button {
   margin-top: 0px;
   margin-bottom: 15px;
   width: 100%;
-  margin-right: -150px;
+  margin-right: -157px;
 }
 
 .inputs {
