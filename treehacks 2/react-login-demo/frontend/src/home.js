@@ -1,6 +1,7 @@
 import React from "react"
-import { useNavigate } from "react-router-dom";
+import { SignedIn, SignedOut, SignInButton, SignOutButton, useUser } from '@clerk/clerk-react'
 
+modified_login
 function Home({ email }) {
     // const { loggedIn, email } = props
     // const navigate = useNavigate();
