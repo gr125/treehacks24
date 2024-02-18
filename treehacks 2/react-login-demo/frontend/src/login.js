@@ -52,6 +52,7 @@ function Login({ onLogin }) {
     return (
         <div>
           <header class="nav"></header>
+          <div class='verticalbox'>
           <div class='loginheader'>Login Page</div>
           <div class='textbox'>
           <input
@@ -74,6 +75,7 @@ function Login({ onLogin }) {
           {passwordError && <p style={{ color: 'red' }}>{passwordError}</p>}
           {logInError && <p style={{ color: 'red' }}>{logInError}</p>}
           <footer class="footer"></footer>
+          </div>
         </div>
       );
     }
