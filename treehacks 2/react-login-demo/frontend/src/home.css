@@ -4,8 +4,14 @@ body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell,
     Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-    overflow: hidden;
+    overflow-y: auto; /* Make the entire page vertically scrollable */
    
+}
+
+.page-container {
+    max-height: 100vh; /* Set the maximum height of the page container */
+    display: flex;
+    flex-direction: column;
 }
 
 .nav{
@@ -74,10 +80,23 @@ button {
 }
 
 .footer {
-  bottom: 0px;
   width: 100%;
   background-color: #177229;
-  height: 75px;
+  height: 20px;
+  background-image: none;
+  background-repeat: repeat;
+  background-attachment: scroll;
+  background-position: 0% 0%;
+  position: fixed;
+  bottom: 0pt;
+  left: 0pt;
+}
+.footer_contents {
+
+    height:20px; 
+    width: 1000px; 
+    margin:auto;
+
 }
 
 .verticalbox {
