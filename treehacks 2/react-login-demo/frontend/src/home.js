@@ -59,7 +59,7 @@ function Home({ email }) {
             <header className="nav"></header>
             <div className='scrollable-content' style={{ overflowY: 'auto' }}>
                 <div className='grid-container'>
-                    <h1 className="welcomeheader">Welcome!</h1>
+                    <h1 className="welcomeheader center">Welcome!</h1>
                     <div className='logo'><img src={logo} alt='' /></div>
                 </div>
                 {loadingProfile ? ( // Conditional rendering of loading indicator
@@ -70,7 +70,7 @@ function Home({ email }) {
                 {loadingProfile ? ( // Conditional rendering of loading indicator
                     <p> </p>
                 ) : (
-                    <div style={{ maxWidth: '800px', maxHeight: '300px', overflowY: 'auto', padding: '10px', border: '1px solid #ccc' }}>
+                    <div className = "center" style={{ maxWidth: '800px', maxHeight: '300px', overflowY: 'auto', padding: '10px', border: '1px solid #ccc' }}>
                         * Allergies: {profileData.split("* Allergies:")[1]}
                     </div>
                 )}
@@ -82,19 +82,19 @@ function Home({ email }) {
                 ) : (
                     <div>
                         <h2>Ask me about your health!</h2>
-                        <input
+                        <input className="center"
                             type="text"
                             value={question}
                             onChange={(e) => setQuestion(e.target.value)}
                             placeholder="Enter your question"
                         />
-                        <button className="small-button" onClick={handleSubmit}>Submit Question</button>
+                        <button className="small-button center" onClick={handleSubmit}>Submit Question</button>
                     </div>
                 )}
                 {loadingChatAnswer ? ( // Conditional rendering of loading indicator
                     <p> </p>
                 ) : (
-                    <div style={{ maxWidth: '800px', maxHeight: '300px', overflowY: 'auto', padding: '10px', border: '1px solid #ccc' }}>
+                    <div className='center' style={{ maxWidth: '800px', maxHeight: '300px', overflowY: 'auto', padding: '10px', border: '1px solid #ccc' }}>
                         {chatAnswer}
                     </div>
                 )}

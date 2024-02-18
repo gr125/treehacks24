@@ -9,7 +9,6 @@ body {
 
 }
 .small-button {
-    display: inline-block;
     font-size: 14px; /* Adjust font size as needed */
     font-weight: bold; /* Optionally, make the text bold */
     text-align: center;
@@ -24,6 +23,10 @@ body {
 
 .page-container {
     max-height: 100vh; /* Set the maximum height of the page container */
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  
 }
 
 .grid-container {
@@ -31,10 +34,22 @@ body {
   align-items: center;
 }
 
+.loadingheader2 {
+    display: flex;
+    justify-content: center;
+    color: #64ca79;
+    margin-top: -449px;
+    margin-bottom: -220px;
+    width: 100%;
+    margin: auto;
+    width: 50%;
+    padding: 10px;
+}
+  
 .logo {
   width: 300px;
   height: auto;
-  margin-left: 50px;
+  margin-left: 10px;
 }
 
 .nav{
@@ -82,7 +97,9 @@ input {
   margin-bottom: 35px;
   justify-content: center;
 }
-
+.h2 {
+    color: #177229;
+}
 .textbox {
   display: flex;
   justify-content: center;
@@ -125,3 +142,16 @@ input {
     overflow-y: auto;
 }
 
+.center {
+    margin: auto;
+    width: 50%;
+    padding: 10px;
+}
+
+h2 {
+    text-align: center;
+}
+
+h1 {
+    text-align: center;
+}
