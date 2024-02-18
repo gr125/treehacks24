@@ -48,7 +48,7 @@ return (
       {loading ? ( // Conditional rendering of loading indicator
                 <p> </p>
             ) : (
-                <div style={{ maxHeight: '300px', overflowY: 'auto',  padding: '10px' }}>
+                <div style={{ maxWidth: '800px', maxHeight: '300px', overflowY: 'auto',  padding: '10px',border: '1px solid #ccc' }}>
                 {profileData.split("* Allergies:")[1]}
             </div>
             )}

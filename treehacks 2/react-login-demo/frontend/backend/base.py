@@ -30,5 +30,7 @@ api = Flask(__name__)
 
 @api.route('/profile')
 def my_profile():
-    summary= get_summary(api_key=TOGETHER_API_KEY, user_ehr=user_ehr)
+    summary, _= get_summary(api_key=TOGETHER_API_KEY, user_ehr=user_ehr)
     return summary;
+
+    
