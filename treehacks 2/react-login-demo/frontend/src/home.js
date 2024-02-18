@@ -33,8 +33,9 @@ return (
     <div>
       <header class="nav"></header>
       <h1>Welcome {email}!</h1>
+      <h2>{profileData.split("* Allergies:")[0].trim()}</h2>
       <div style={{ maxHeight: '300px', overflowY: 'auto',  padding: '10px' }}>
-                {profileData}
+                {profileData.split("* Allergies:")[1]}
             </div>
       <footer class="footer"></footer>
     </div>
