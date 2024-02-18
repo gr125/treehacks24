@@ -21,7 +21,7 @@ body {
 }
 
 .logo {
-  width: 250px;
+  width: 300px;
   height: auto;
   margin-left: 50px;
 }
@@ -55,7 +55,7 @@ code {
 }  
 input {
   display: flex;
-  width: 300px; /* Adjust width as needed */
+  width: 300px;
   padding: 10px;
   margin: 5px;
 }
