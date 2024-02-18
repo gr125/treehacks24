@@ -57,7 +57,7 @@ return (
     <div>
       <header className="nav"></header>
       <div style={{overflowY: 'auto' }}>
-      <h1 className="welcomeheader">Welcome {email}!</h1>
+      <h1 className="welcomeheader">Welcome!</h1>
       {loadingProfile ? ( // Conditional rendering of loading indicator
                 <h2 className="loadingheader">Loading health summary...</h2>
             ) : (
@@ -88,7 +88,7 @@ return (
                 <p> </p>
             ) : (
                 <div style={{ maxWidth: '800px', maxHeight: '300px', overflowY: 'auto',  padding: '10px',border: '1px solid #ccc' }}>
-                {chatAnswer}}
+                {chatAnswer}
             </div>
             )}
       </div>
