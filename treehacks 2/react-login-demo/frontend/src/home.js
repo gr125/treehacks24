@@ -41,10 +41,10 @@ function Home({ email }) {
 
 return (
     <div>
-      <header class="nav"></header>
-      <h1>Welcome {email}!</h1>
+      <header className="nav"></header>
+      <h1 className="welcomeheader">Welcome {email}!</h1>
       {loading ? ( // Conditional rendering of loading indicator
-                <h2>Loading health summary...</h2>
+                <h2 className="loadingheader">Loading health summary...</h2>
             ) : (
                 <h2>{profileData.split("* Allergies:")[0].trim()}</h2>
             )}

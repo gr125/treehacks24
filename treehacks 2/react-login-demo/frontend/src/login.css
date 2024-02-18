@@ -87,3 +87,24 @@ button {
   align-items: center;
   height: 70vh;
 }
+.welcomeheader {
+  display: flex;
+  border: none;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-weight: bold;
+  font-size: 30px;
+  color: #64ca79;
+  margin-top: 0px;
+  margin-bottom: 35px;
+  justify-content: center;
+}
+.loadingheader {
+  display: flex;
+  border: none;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-weight: bold;
+  font-size: 30px;
+  color: #64ca79;
+  margin-top: 0px;
+  justify-content: center;
+}
