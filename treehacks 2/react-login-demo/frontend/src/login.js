@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import './login.css'
 import email_icon from './assets/email.png'
 import password_icon from './assets/password.png'
+import logo from './assets/logo.png'
 
 function Login({ onLogin }) {
     const [email, setEmail] = useState("")
@@ -55,7 +56,10 @@ function Login({ onLogin }) {
         <div className="container">
           <header className="nav"></header>
           <div className='verticalbox'>
-            <div className='loginheader'>Login Page</div>
+            <div className='grid-container'>
+            <div className='loginheader'>MedEasy</div>
+            <div className='logo'><img src={logo} alt='' /></div>
+            </div>
             <div className='underline'></div>
           <div className='inputs'>
             <div className='input'>

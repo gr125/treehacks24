@@ -6,7 +6,16 @@ body {
     overflow: hidden;
    
 }
+.grid-container {
+  display: flex; /* Use flexbox to arrange items horizontally */
+  align-items: center; /* Vertically center items */
+}
 
+.logo img {
+  width: 85px; /* Adjust width as needed */
+  height: auto; /* Maintain aspect ratio */
+  margin-left: 10px; /* Adjust margin as needed */
+}
 .nav {
   background: #9be5aa;
   height: 10vh;
@@ -64,13 +73,14 @@ button {
 }
 
 .loginheader {
+  display: flex;
+  justify-content: center;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   font-weight: bold;
   font-size: 45px;
   color: #64ca79;
   margin-top: 0px;
   margin-bottom: 15px;
-  justify-content: center;
   width: 100%;
 }
 
