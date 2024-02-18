@@ -46,7 +46,7 @@ return (
       {loading ? ( // Conditional rendering of loading indicator
                 <h2 className="loadingheader">Loading health summary...</h2>
             ) : (
-                <h2>{profileData.split("* Allergies:")[0].trim()}</h2>
+                <h2 className="loadingheader">{profileData.split("* Allergies:")[0].trim()}</h2>
             )}
       {loading ? ( // Conditional rendering of loading indicator
                 <p> </p>
