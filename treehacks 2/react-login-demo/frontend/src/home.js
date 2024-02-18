@@ -1,44 +1,52 @@
 import React from "react"
 import { useNavigate } from "react-router-dom";
 
-const Home = (props) => {
-    const { loggedIn, email } = props
-    const navigate = useNavigate();
+function Home({ email }) {
+    // const { loggedIn, email } = props
+    // const navigate = useNavigate();
     
-    const onButtonClick = () => {
-        if (loggedIn) {
-            localStorage.removeItem("user")
-            props.setLoggedIn(false)
-        } else {
-            navigate("/login")
-        }
-    }
+    // const onButtonClick = () => {
+    //     if (loggedIn) {
+    //         localStorage.removeItem("user")
+    //         props.setLoggedIn(false)
+    //     } else {
+    //         navigate("/login")
+    //     }
+    // }
 
-    return (
+//     return (
     
-        <div>
+//         <div>
 
-<div className="nav"></div>
+// <div className="nav"></div>
         
-    <div className="mainContainer">
+//     <div className="mainContainer">
         
-        <div className={"titleContainer"}>
-            <div className="welcomeheader">Welcome!</div>
-        </div>
-        <div className={"buttonContainer"}>
-            <input
-                className={"inputButton"}
-                type="button"
-                onClick={onButtonClick}
-                value={loggedIn ? "Log out" : "Log in"} />
-            {(loggedIn ? <div>
-                Your email address is {email}
-            </div> : <div/>)}
-        </div>
-        <div class="footer"></div>
+//         <div className={"titleContainer"}>
+//             <div className="welcomeheader">Welcome!</div>
+//         </div>
+//         <div className={"buttonContainer"}>
+//             <input
+//                 className={"inputButton"}
+//                 type="button"
+//                 onClick={onButtonClick}
+//                 value={loggedIn ? "Log out" : "Log in"} />
+//             {(loggedIn ? <div>
+//                 Your email address is {email}
+//             </div> : <div/>)}
+//         </div>
+//         <div class="footer"></div>
+//     </div>
+//     </div>
+//     )
+return (
+    <div>
+      <header class="nav"></header>
+      <h1>Welcome {email}!</h1>
+      <p>You have successfully logged in.</p>
+      <footer class="footer"></footer>
     </div>
-    </div>
-    )
+  );
 }
 
 export default Home
