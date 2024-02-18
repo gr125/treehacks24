@@ -5,9 +5,11 @@ import logo from './assets/logo.png'
 
 function Home({ email }) {
     const [profileData, setProfileData] = useState(null)
-    const [loading, setLoading] = useState(true)
+    const [loadingProfile, setLoadingProfile] = useState(true)
 
     const [question, setQuestion] = useState("")
+    const [chatAnswer, setChatAnswer] = useState(null)
+    const [loadingChatAnswer, setLoadingChatAnswer] = useState(true)
 
     function getData() {
         axios({
@@ -33,36 +35,72 @@ function Home({ email }) {
             } catch (error) {
                 console.error('Error fetching profile data:', error);
             } finally {
-                setLoading(false); // Update loading state after fetching
+                setLoadingProfile(false); // Update loading state after fetching
             }
         };
 
         getData();
     }, []);
 
-return (
-    <div>
-      <header className="nav"></header>
-      <div className='grid-container'>
-        <h1 className="welcomeheader">Welcome!</h1>
-        <div className='logo'><img src={logo} alt='' /></div>
-      </div>
-      {loading ? ( // Conditional rendering of loading indicator
-                <h2 className="loadingheader">Loading health summary...</h2>
-            ) : (
-                <h2>{profileData.split("* Allergies:")[0].trim()}</h2>
-            )}
-      {loading ? ( // Conditional rendering of loading indicator
-                <p> </p>
-            ) : (
-                <div style={{ maxWidth: '800px', maxHeight: '300px', overflowY: 'auto',  padding: '10px',border: '1px solid #ccc' }}>
-                * Allergies: {profileData.split("* Allergies:")[1]}
+    const handleSubmit = async () => {
+        try {
+            const response = await axios.post('/chatbot', {question:question, user_summary:profileData}); // Make a GET request to the server endpoint
+            setChatAnswer(response.data); // Update the profile data state with the response data
+        } catch (error) {
+            console.error('Error fetching profile data:', error);
+        } finally {
+            setLoadingChatAnswer(false);
+        }
+    };
+
+
+    return (
+        <div>
+            <header className="nav"></header>
+            <div style={{ overflowY: 'auto' }}>
+                <div className='grid-container'>
+                    <h1 className="welcomeheader">Welcome!</h1>
+                    <div className='logo'><img src={logo} alt='' /></div>
+                </div>
+                {loadingProfile ? ( // Conditional rendering of loading indicator
+                    <h2 className="loadingheader">Loading health summary...</h2>
+                ) : (
+                    <h2>{profileData.split("* Allergies:")[0].trim()}</h2>
+                )}
+                {loadingProfile ? ( // Conditional rendering of loading indicator
+                    <p> </p>
+                ) : (
+                    <div style={{ maxWidth: '800px', maxHeight: '300px', overflowY: 'auto', padding: '10px', border: '1px solid #ccc' }}>
+                        * Allergies: {profileData.split("* Allergies:")[1]}
+                    </div>
+                )}
             </div>
-            )}
-      
-      <footer class="footer"></footer>
-    </div>
-  );
-}
+    
+            <div>
+                {loadingProfile ? ( // Conditional rendering of loading indicator
+                    <p> </p>
+                ) : (
+                    <div>
+                        <h2>Ask me about your health!</h2>
+                        <input
+                            type="text"
+                            value={question}
+                            onChange={(e) => setQuestion(e.target.value)}
+                            placeholder="Enter your question"
+                        />
+                        <button className="small-button" onClick={handleSubmit}>Submit Question</button>
+                    </div>
+                )}
+                {loadingChatAnswer ? ( // Conditional rendering of loading indicator
+                    <p> </p>
+                ) : (
+                    <div style={{ maxWidth: '800px', maxHeight: '300px', overflowY: 'auto', padding: '10px', border: '1px solid #ccc' }}>
+                        {chatAnswer}
+                    </div>
+                )}
+            </div>
+    
+        </div>
+    );}
 
 export default Home
