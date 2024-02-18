@@ -1,7 +1,6 @@
 import React from "react"
 import { SignedIn, SignedOut, SignInButton, SignOutButton, useUser } from '@clerk/clerk-react'
 
-modified_login
 function Home({ email }) {
     // const { loggedIn, email } = props
     // const navigate = useNavigate();
