@@ -52,19 +52,23 @@ function Login({ onLogin }) {
     return (
         <div>
           <header class="nav"></header>
-          <h1>Login Page</h1>
+          <div class='loginheader'>Login Page</div>
+          <div class='textbox'>
           <input
             type="text"
             placeholder="Email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
           />
+          </div>
+          <div class='textbox'>
           <input
             type="password"
             placeholder="Password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
+          </div>
           <button onClick={onButtonClick}>Login</button>
           {emailError && <p style={{ color: 'red' }}>{emailError}</p>}
           {passwordError && <p style={{ color: 'red' }}>{passwordError}</p>}
