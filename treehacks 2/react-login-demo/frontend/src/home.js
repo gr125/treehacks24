@@ -1,9 +1,12 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import './home.css'
 
 function Home({ email }) {
     const [profileData, setProfileData] = useState(null)
     const [loading, setLoading] = useState(true)
+
+    const [question, setQuestion] = useState("")
 
     function getData() {
         axios({
@@ -49,7 +52,7 @@ return (
                 <p> </p>
             ) : (
                 <div style={{ maxWidth: '800px', maxHeight: '300px', overflowY: 'auto',  padding: '10px',border: '1px solid #ccc' }}>
-                {profileData.split("* Allergies:")[1]}
+                * Allergies: {profileData.split("* Allergies:")[1]}
             </div>
             )}
       

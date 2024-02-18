@@ -23,14 +23,54 @@ def get_summary(api_key, user_ehr):
 
     return chat_completion.choices[0].message.content
 
+def get_answer(api_key, user_summary, question):
+    client = OpenAI(api_key=api_key,
+        base_url='https://api.together.xyz',
+    )
 
-from flask import Flask
+    if len(chat)==0:
+        chat.append(
+            {
+                "role": "system",
+                "content": "You are an AI assistant answering questions the user asks about their health, taking into consideration any questions the user previously asked. You are not a physician or a person of authority. You cannot answer any questions irrelevant to medical health such as payment information, physician information, hospital information, and healthcare providers. You are given this information about the patient: "+user_summary,
+            }
+        )
+        chat.append(
+            {
+                "role": "user",
+                "content": "I am this patient. Please answer this question in detail: "+question,
+            }
+        )
+    else:
+        chat.append( 
+             {"role":"user", 
+              "content": "I am this patient. Please answer this question in detail: "+question}
+        )
+
+    chat_completion = client.chat.completions.create(
+    messages=chat,
+    model="codellama/CodeLlama-13b-Instruct-hf",
+    max_tokens=1024)
+    chat.append(
+        {"role":"assistant", "content":chat_completion.choices[0].message.content}
+    )
+    return chat_completion.choices[0].message.content
+
+from flask import Flask, request, jsonify
 
 api = Flask(__name__)
 
 @api.route('/profile')
 def my_profile():
-    summary, _= get_summary(api_key=TOGETHER_API_KEY, user_ehr=user_ehr)
+    summary= get_summary(api_key=TOGETHER_API_KEY, user_ehr=user_ehr)
     return summary;
 
-    
+chat = []
+@api.route('/chatbot', methods=["POST"])
+def my_chatbot():
+   question = request.json.get('question')
+   user_summary = request.json.get('user_summary')
+   answer = get_answer(api_key=TOGETHER_API_KEY, user_summary=user_summary, question=question)
+   return answer;
+
+
