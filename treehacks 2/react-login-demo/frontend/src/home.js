@@ -3,7 +3,6 @@ import axios from "axios";
 
 function Home({ email }) {
     const [profileData, setProfileData] = useState(null)
-    const [loading, setLoading] = useState(true)
 
     function getData() {
         axios({
@@ -21,38 +20,21 @@ function Home({ email }) {
             }
         })}
     
-     useEffect(() => {
-        const getData = async () => {
-            try {
-                const response = await axios.get('/profile');
-                setProfileData(response.data);
-            } catch (error) {
-                console.error('Error fetching profile data:', error);
-            } finally {
-                setLoading(false); // Update loading state after fetching
-            }
-        };
-
-        getData();
-    }, []);
+    useEffect(() => {
+        let ignore = false;
+            
+        if (!ignore)  getData()
+            return () => { ignore = true; }
+    },[]);
 
 return (
     <div>
       <header class="nav"></header>
       <h1>Welcome {email}!</h1>
-      {loading ? ( // Conditional rendering of loading indicator
-                <h2>Loading health summary...</h2>
-            ) : (
-                <h2>{profileData.split("* Allergies:")[0].trim()}</h2>
-            )}
-      {loading ? ( // Conditional rendering of loading indicator
-                <p> </p>
-            ) : (
-                <div style={{ maxHeight: '300px', overflowY: 'auto',  padding: '10px' }}>
+      <h2>{profileData.split("* Allergies:")[0].trim()}</h2>
+      <div style={{ maxHeight: '300px', overflowY: 'auto',  padding: '10px' }}>
                 {profileData.split("* Allergies:")[1]}
             </div>
-            )}
-      
       <footer class="footer"></footer>
     </div>
   );
