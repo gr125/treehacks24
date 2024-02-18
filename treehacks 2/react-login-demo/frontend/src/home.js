@@ -1,6 +1,4 @@
-import React from "react"
-import { SignedIn, SignedOut, SignInButton, SignOutButton, useUser } from '@clerk/clerk-react'
-import { useState, useEffect } from 'react'
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 
 function Home({ email }) {
