@@ -8,7 +8,7 @@ body {
    
 }
 .page-container {
-    max-height: 100vh; /* Set the maximum height of the page container */
+    max-height: 100vh;
     display: flex;
     flex-direction: column;
 }

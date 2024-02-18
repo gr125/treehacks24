@@ -9,12 +9,13 @@ body {
 .grid-container {
   display: flex; /* Use flexbox to arrange items horizontally */
   align-items: center; /* Vertically center items */
+  
 }
 
 .logo img {
   width: 85px; /* Adjust width as needed */
   height: auto; /* Maintain aspect ratio */
-  margin-left: 10px; /* Adjust margin as needed */
+  margin-left: 80px; /* Adjust margin as needed */
 }
 .nav {
   background: #9be5aa;
@@ -82,6 +83,7 @@ button {
   margin-top: 0px;
   margin-bottom: 15px;
   width: 100%;
+  margin-right: -150px;
 }
 
 .inputs {
