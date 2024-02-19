@@ -34,7 +34,15 @@ client = OpenAI(api_key=TOGETHER_API_KEY,
   base_url='https://api.together.xyz',
 )
 
-messages =  [
+messages = []
+
+def get_summary(api_key, user_ehr):
+    client = OpenAI(api_key=api_key,
+        base_url='https://api.together.xyz',
+    )
+    chat_completion = client.chat.completions.create(
+        model="codellama/CodeLlama-13b-Instruct-hf",
+        messages =  [
         {
         "role": "system",
         "content": "You are an AI assistant providing the user with a summary of their electronic health record. You are not a physician or a person of authority. You are given this information about the patient: "+user_ehr,
@@ -43,15 +51,7 @@ messages =  [
         "role": "user",
         "content": "Create a summary-style report for this patient that describes this patient's current health condition with the aim of educating the patient about their health. Format the report using bullet points and concise language for increased readability. At the end of the report, include a section of recommendations for actions the patient should take, but emphasize that the patient should communicate with their physician. Title the report 'Current Health Report for [patient]' replacing [patient] with the Patient's first and last name.",
         }
-    ]
-
-def get_summary(api_key, user_ehr):
-    client = OpenAI(api_key=api_key,
-        base_url='https://api.together.xyz',
-    )
-    chat_completion = client.chat.completions.create(
-        model="codellama/CodeLlama-13b-Instruct-hf",
-        messages=messages,
+    ],
         max_tokens=1024
     )
     return chat_completion.choices[0].message.content
@@ -94,10 +94,19 @@ def get_answer(api_key, user_summary, question):
     """
 
 #Convert input voice from Telegram to text and speech response from LLM
+chat = []
 
-"""
+
 summary = get_summary(api_key=TOGETHER_API_KEY, user_ehr=user_ehr)
 print(summary)
+
+"""
+response_byte_audio = voice.generate_audio_v2(summary)
+with open('response_elevenlabs.mp3', 'wb') as f:
+    f.write(response_byte_audio)
+    
+    # Send the voice message to the user
+context.bot.send_voice(chat_id=update.message.chat.id, voice=open('response_elevenlabs.mp3', 'rb'))
 
 
 chat = []
@@ -116,32 +125,10 @@ while user_input != "quit":
         question=user_input,
     )
 """
-
-summary = get_summary(api_key=TOGETHER_API_KEY, user_ehr=user_ehr)
-print(summary)
-chat = []
-user_input = input("Ask me about your health conditions, or say or type 'quit' to end the conversation!\n")
-while user_input != "quit":
-    bot_response = get_answer(
-        api_key=TOGETHER_API_KEY, 
-        user_summary=summary, 
-        question=user_input,
-    )
-    print(bot_response)
-    response_text = bot_response.choices[0].message.content
-    messages.append({"role": "assistant", "content": response_text})
-    response_byte_audio = voice.generate_audio_bytes(response_text)
-    with open('response_elevenlabs.mp3', 'wb') as f:
-        f.write(response_byte_audio)
-    context.bot.send_voice(chat_id=update.message.chat.id,
-                           voice=open('response_elevenlabs.mp3', 'rb'))
-    update.message.reply_text(
-        text=f"*[Bot]:* {response_text}", parse_mode=telegram.ParseMode.MARKDOWN)
-    user_input = input("Ask me about your health conditions, or type 'quit' to end the conversation!\n")
-
     
 
 def text_message(update, context):
+    
     update.message.reply_text("Developing text message...")
     user_input = update.message.text  # Fetch user's text input
     messages.append({"role": "user", "content": user_input})
@@ -206,7 +193,7 @@ def voice_message(update, context):
     # Append the bot's response to the messages list
 
 
-   
+
 
 
 updater = Updater(TELEGRAM_API_TOKEN, use_context=True)
