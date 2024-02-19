@@ -1,6 +1,6 @@
 from openai import OpenAI
 user_ehr = open("../../../../postgresql/output.txt","r").read()
-TOGETHER_API_KEY = "29e5fa35b999a845ea50daaa50dd7a91f636011d9e111c40671d29495c41cf9d"
+TOGETHER_API_KEY = "[API KEY]"
 
 def get_summary(api_key, user_ehr):
     client = OpenAI(api_key=api_key,

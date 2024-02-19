@@ -7,10 +7,10 @@ from moviepy.editor import AudioFileClip
 from elevenlabslib import ElevenLabsUser
 
 #define API keys
-api_key = "29e5fa35b999a845ea50daaa50dd7a91f636011d9e111c40671d29495c41cf9d"
+api_key = "[API KEY]"
 TOGETHER_API_KEY = api_key
-TELEGRAM_API_TOKEN = "6514589295:AAFrIOK8uKzkMSdkc9tiMrK_ooU9-IziudU"
-ELEVENLABS_API_KEY = "6e40489fa4e04e9e30786211e407ecce"
+TELEGRAM_API_TOKEN = "[API TOKEN]"
+ELEVENLABS_API_KEY = "[API KEY]"
 
 #Automate textual tabulation of user_ehr simulated data
 # Get the directory of the current script
